@@ -1,14 +1,8 @@
-const aws = require("aws-sdk");
-
-// Add your AWS credentials here
-aws.config.update({
-  accessKeyId: "",
-  secretAccessKey: "",
-  region: "us-west-2"
-});
-
-// Load AWS SES
-const ses = new aws.SES({ apiVersion: "2010-12-01" });
+const mailgun = require("mailgun-js")({
+  apiKey: process.env.mailgun_api_key,
+  domain: "www.diple.app",
+}
+);
 
 const to = ["contact@diple.app"];
 // Also add your email address as the sender
@@ -18,24 +12,15 @@ const from = "contact@diple.app";
 export default (req, res) => {
   const body = req.body;
 
-  ses.sendEmail(
+  mailgun.messages().send(
     {
-      Source: from,
-      Destination: { ToAddresses: to },
-      Message: {
-        Subject: {
-          Data: `Contact form submission`
-        },
-        Body: {
-          Text: {
-            Data: `
-                  Name: ${body.name}
-                  Email: ${body.email}
-                  Message: ${body.message}
-                `
-          }
-        }
-      }
+      from: from,
+      to: to,
+      subject: `Contact form submission`,
+      text:
+        `Name: ${body.name}
+        Email: ${body.email}
+        Message: ${body.message}`
     },
     (err, data) => {
       if (err) {

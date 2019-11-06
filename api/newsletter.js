@@ -1,7 +1,6 @@
 const Mailchimp = require("mailchimp-api-v3");
 
-// Add your Mailchimp credentials here
-// See https://bit.ly/2Nk6gCD for instructions on finding this info
+// Add Mailchimp credentials
 const apiKey = "";
 const listId = "";
 const mailchimp = new Mailchimp(apiKey);
