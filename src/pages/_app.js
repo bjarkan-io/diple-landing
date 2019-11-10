@@ -1,6 +1,7 @@
 import React from "react"
 import Navbar from "./../components/Navbar"
 import IndexPage from "./index"
+import ProfilePage from "./profile"
 import AboutPage from "./about"
 import FaqPage from "./faq"
 import PricingPage from "./pricing"
@@ -28,6 +29,7 @@ function App(props) {
 					<Route exact path='/pricing' component={PricingPage} />
 					<Route exact path='/contact' component={ContactPage} />
 					<Route exact path='/dashboard' component={DashboardPage} />
+					<Route exact path='/profile' component={ProfilePage} />
 					<Route exact path='/signin' component={SigninPage} />
 					<Route exact path='/signup' component={SignupPage} />
 					<Route exact path='/forgotpass' component={ForgotpassPage} />
