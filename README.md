@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/bjarkan-io/diple-landing.svg?branch=master)](https://travis-ci.com/bjarkan-io/diple-landing)
+
 ## 👉 Get Started
 
 Install dependencies
